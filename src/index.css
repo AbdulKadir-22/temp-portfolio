@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+
+@theme {
+  --color-primary: #1C1917;
+  --color-secondary: #44403C;
+  --color-accent: #CA8A04;
+  --color-bg-light: #FAFAF9;
+  --color-bg-dark: #0C0A09;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-white overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/40 border border-white/10;
+  }
+}
+
+:root {
+  --transition-speed: 0.6s;
+}
+
+.bg-transition {
+  transition: opacity var(--transition-speed) ease-in-out;
+}

@@ -1,0 +1,30 @@
+# StatusCard Design System
+
+The StatusCard is a premium glassmorphic component designed for the bottom-right corner of the application.
+
+## Colors
+
+### Light Mode
+| Element | Property | Value | Tailwind Class |
+|---------|----------|-------|----------------|
+| Background | Glass | `rgba(255, 255, 255, 0.4)` | `bg-white/40` |
+| Border | Stroke | `rgba(255, 255, 255, 0.5)` | `border-white/50` |
+| Label | Text | `#3B82F6` (Blue 500) | `text-blue-500` |
+| Title | Text | `#1E293B` (Slate 800) | `text-slate-800` |
+| Subtext | Text | `#64748B` (Slate 500) | `text-slate-500` |
+| Dot | Indicator | `#22C55E` (Green 500) | `bg-green-500` |
+
+### Dark Mode
+| Element | Property | Value | Tailwind Class |
+|---------|----------|-------|----------------|
+| Background | Glass | `rgba(0, 0, 0, 0.4)` | `bg-black/40` |
+| Border | Stroke | `rgba(255, 255, 255, 0.1)` | `border-white/10` |
+| Label | Text | `#94A3B8` (Slate 400) | `text-slate-400` |
+| Title | Text | `#F8FAFC` (Slate 50) | `text-slate-50` |
+| Subtext | Text | `#94A3B8` (Slate 400) | `text-slate-400` |
+| Dot | Indicator | `#22C55E` (Green 500) | `bg-green-500` |
+
+## Components
+- **Icon Container**: Circular container with subtle inner shadow.
+- **Glass Effect**: Backdrop filter with blur and transparency.
+- **Typography**: Inter (System Default).
