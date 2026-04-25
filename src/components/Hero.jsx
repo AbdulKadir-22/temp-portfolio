@@ -1,97 +1,73 @@
-import React from 'react';
-import { Sparkle } from 'lucide-react';
-import { FaGithub, FaLinkedinIn, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import React, { createElement } from 'react';
+import { FaGithub, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
+
+const socialLinks = [
+  { icon: FaGithub, label: 'GitHub', color: 'gold' },
+  { icon: FaLinkedinIn, label: 'LinkedIn', color: 'blue' },
+  { icon: FaXTwitter, label: 'Twitter', color: 'blue' },
+  { icon: FaInstagram, label: 'Instagram', color: 'gold' },
+];
 
 const Hero = ({ theme }) => {
   const isDark = theme === 'dark';
-
-  const socialLinks = [
-    { icon: FaGithub, color: 'hover:text-white hover:border-white', label: 'Github' },
-    { icon: FaLinkedinIn, color: 'hover:text-blue-400 hover:border-blue-400', label: 'LinkedIn' },
-    { icon: FaXTwitter, color: 'hover:text-white hover:border-white', label: 'Twitter' },
-    { icon: FaInstagram, color: 'hover:text-pink-400 hover:border-pink-400', label: 'Instagram' },
-  ];
+  
+  const titleStyle = {
+    fontFamily: "'Inter', system-ui, sans-serif",
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
+    fontWeight: 900,
+    lineHeight: '0.95',
+    backgroundImage: isDark ? 'linear-gradient(180deg, #f7fbff 0%, #c6dcff 48%, #eef5ff 100%)' : 'none',
+    WebkitBackgroundClip: isDark ? 'text' : 'initial',
+    backgroundClip: isDark ? 'text' : 'initial',
+    color: isDark ? 'transparent' : '#233f83',
+    textShadow: isDark ? 'none' : '0 4px 12px rgba(106, 143, 225, 0.2)',
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
-      {/* Name Heading */}
-      <div className="space-y-0 mb-8">
-        <h1 className={`
-          text-5xl md:text-7xl font-black tracking-[0.25em] uppercase font-['Orbitron']
-          transition-colors duration-500
-          ${isDark 
-            ? 'text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' 
-            : 'text-slate-900 drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]'}
-        `}>
-          ABDULKADIR
-        </h1>
-        <h1 className={`
-          text-5xl md:text-7xl font-black tracking-[0.25em] uppercase font-['Orbitron']
-          transition-colors duration-500
-          ${isDark 
-            ? 'text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' 
-            : 'text-slate-900 drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]'}
-        `}>
-          SHAIKH
-        </h1>
-      </div>
+    <section className="flex flex-col items-center text-center px-4 w-full max-w-xl scale-[0.95]">
+      <header className="mb-4">
+        {['ABDULKADIR', 'SHAIKH'].map((name, i) => (
+          <h1 key={i} className={`text-4xl sm:text-6xl md:text-7xl font-black ${i > 0 ? '-mt-1' : ''}`} style={titleStyle}>
+            {name}
+          </h1>
+        ))}
+      </header>
 
-      {/* Futuristic Divider */}
-      <div className="relative w-full max-w-lg flex items-center justify-center my-10">
-        <div className={`h-[1px] flex-1 bg-gradient-to-r from-transparent ${isDark ? 'via-blue-500/50' : 'via-blue-400/50'} to-transparent`} />
-        <div className={`mx-4 relative group`}>
-          <Sparkle 
-            size={24} 
-            className={`
-              transition-all duration-500
-              ${isDark ? 'text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]' : 'text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]'}
-              group-hover:rotate-90 group-hover:scale-125
-            `}
-            fill="currentColor"
-          />
-          <div className={`absolute inset-0 animate-ping opacity-20 ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-            <Sparkle size={24} fill="currentColor" />
-          </div>
+      <div className="flex items-center w-full max-w-xs gap-3 mb-6">
+        <div className={`h-px flex-1 ${isDark ? 'bg-gradient-to-r from-transparent via-yellow-500/60 to-transparent' : 'bg-gradient-to-r from-transparent via-blue-400/60 to-transparent'}`} />
+        <div className="relative">
+          {!isDark && <div className="absolute inset-0 blur-lg rounded-full bg-blue-400/30" />}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className={isDark ? 'text-yellow-200 relative' : 'text-blue-600 relative'}>
+            <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+          </svg>
         </div>
-        <div className={`h-[1px] flex-1 bg-gradient-to-r from-transparent ${isDark ? 'via-blue-500/50' : 'via-blue-400/50'} to-transparent`} />
+        <div className={`h-px flex-1 ${isDark ? 'bg-gradient-to-r from-transparent via-yellow-500/60 to-transparent' : 'bg-gradient-to-r from-transparent via-blue-400/60 to-transparent'}`} />
       </div>
 
-      {/* Quote Section */}
-      <div className="relative max-w-2xl mb-12">
-        <span className="absolute -top-6 -left-8 text-4xl text-orange-400/40 font-serif">“</span>
-        <p className={`
-          text-lg md:text-xl font-light tracking-wide leading-relaxed
-          transition-colors duration-500
-          ${isDark ? 'text-slate-300' : 'text-slate-700'}
-        `}>
+      <blockquote className={`relative mb-8 max-w-lg px-6 italic ${isDark ? 'text-white/80' : 'text-[#23386d]'}`}>
+        <span className="absolute left-0 top-0 text-2xl text-yellow-500">"</span>
+        <p className="text-lg md:text-xl font-light leading-relaxed">
           I want to become sun who shines other, 
-          <br className="hidden md:block" />
+          <br className="hidden sm:block" />
           but am a meteor who only shines when he is falling.
         </p>
-        <span className="absolute -bottom-10 -right-8 text-4xl text-orange-400/40 font-serif">”</span>
-      </div>
+        <span className="absolute bottom-0 right-0 text-2xl text-yellow-500">"</span>
+      </blockquote>
 
-      {/* Social Links */}
-      <div className="flex items-center gap-6">
-        {socialLinks.map((social, index) => (
-          <a
-            key={index}
-            href="#"
-            className={`
-              w-12 h-12 flex items-center justify-center rounded-full border
-              backdrop-blur-md transition-all duration-300
-              ${isDark 
-                ? 'bg-white/5 border-white/10 text-slate-400' 
-                : 'bg-white/40 border-black/5 text-slate-600 shadow-sm'}
-              ${social.color}
-              hover:scale-110 hover:-translate-y-1
-            `}
+      <nav className="flex gap-4">
+        {socialLinks.map(({ icon: Icon, label, color }) => (
+          <a key={label} href="#" aria-label={label}
+            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:-translate-y-1 shadow-md ${
+              isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-blue-100 text-blue-500'
+            }`}
+            style={{ borderColor: isDark ? (color === 'gold' ? '#eab30866' : '#3b82f666') : undefined }}
           >
-            <social.icon size={20} />
+            {createElement(Icon, { size: 19 })}
           </a>
         ))}
-      </div>
-    </div>
+      </nav>
+    </section>
   );
 };
 

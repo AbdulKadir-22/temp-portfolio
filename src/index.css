@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@300..900&display=swap');
 
 @theme {
   --color-primary: #1C1917;
@@ -20,7 +19,7 @@
   .glass {
     @apply backdrop-blur-md bg-white/10 border border-white/20;
   }
-  
+
   .glass-dark {
     @apply backdrop-blur-md bg-black/40 border border-white/10;
   }
@@ -32,4 +31,65 @@
 
 .bg-transition {
   transition: opacity var(--transition-speed) ease-in-out;
+}
+
+@keyframes meteorFloatSlow {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes meteorFloatFast {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.meteor-piece {
+  position: absolute;
+  user-select: none;
+  will-change: transform;
+}
+
+.meteor-piece-lg {
+  right: -1%;
+  top: 19%;
+  width: 96%;
+  max-width: 720px;
+  object-fit: cover;
+  object-position: 58% 60%;
+  animation: meteorFloatSlow 6.8s ease-in-out infinite;
+}
+
+.meteor-piece-sm {
+  width: 30%;
+  max-width: 190px;
+  object-fit: cover;
+  object-position: center;
+  animation: meteorFloatFast 5.1s ease-in-out infinite;
+}
+
+.meteor-piece-sm-top {
+  left: 14%;
+  top: 10%;
+  object-position: 16% 7%;
+}
+
+.meteor-piece-sm-upper {
+  left: 34%;
+  top: 13%;
+  object-position: 36% 9%;
+  animation-delay: 0.9s;
 }
