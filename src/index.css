@@ -101,3 +101,21 @@
   top: 12%;
   animation-delay: 0.9s;
 }
+
+@keyframes planetRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+}
+
+.planet-animation {
+  animation: planetRotate 120s linear infinite;
+}
+
+.orbit-item {
+  animation: orbitFloat 4s ease-in-out infinite;
+}

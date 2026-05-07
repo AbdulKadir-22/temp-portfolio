@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import StatusCard from './components/StatusCard';
 import Hero from './components/Hero';
+import Navigation from './components/Navigation';
 import { Orbit } from 'lucide-react';
 import lightBg from './assets/background/light-bg.png';
 import darkBg from './assets/background/dark-bg.png';
@@ -62,9 +63,19 @@ function App() {
           />
         </div>
 
-        {/* Hero Section */}
-        <div className="flex items-center justify-center h-full">
-          <Hero theme={theme} />
+        {/* Main Interface Layout */}
+        <div className="relative h-full w-full flex items-center justify-center px-[4%]">
+          {/* Navigation Section (Positioned Left) */}
+          <div className="absolute left-0 lg:left-[5%] top-1/2 -translate-y-1/2 w-full max-w-[600px] h-full pointer-events-none">
+            <div className="pointer-events-auto h-full">
+              <Navigation theme={theme} />
+            </div>
+          </div>
+
+          {/* Hero Section (Centered) */}
+          <div className="relative z-10">
+            <Hero theme={theme} />
+          </div>
         </div>
 
         {/* Bottom Left: Location Card */}
