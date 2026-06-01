@@ -7,7 +7,8 @@ import { useTheme } from './context/ThemeContext';
 import Hero from './features/home/Hero';
 
 // Lazy-load other pages (only fetched when navigated to)
-const ResumePage = lazy(() => import('./features/resume/ResumePage'));
+const ResumePage = lazy(() => import('./features/resume/pages/ResumePage'));
+const BlogsPage = lazy(() => import('./features/blogs/pages/BlogsPage'));
 
 /**
  * Centralized route definitions.
@@ -74,8 +75,18 @@ const AppRoutes = () => {
           }
         />
 
+        {/* Blogs (lazy-loaded) */}
+        <Route
+          path="blogs"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <BlogsPage />
+            </Suspense>
+          }
+        />
+
         {/* Placeholder routes for future pages */}
-        {['BLOGS', 'SKILLS', 'PROJECTS', 'EXPERIENCE', 'HOBBIES', 'CONTACT'].map((page) => (
+        {['SKILLS', 'PROJECTS', 'EXPERIENCE', 'HOBBIES', 'CONTACT'].map((page) => (
           <Route
             key={page}
             path={page.toLowerCase()}

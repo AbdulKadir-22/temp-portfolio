@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Minus, Plus, Maximize2, Download } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
-import { resumeConfig } from '../../data/resume/config';
+import { useTheme } from '../../../context/ThemeContext';
+import { resumeConfig } from '../data/config';
 
 /**
  * ResumeViewer — macOS-style window chrome wrapping an embedded PDF.
- * User places their resume PDF at public/resume/resume.pdf.
+ * User places their resume PDF at public/resume/Resume.pdf.
  */
 const ResumeViewer = () => {
   const { isDark } = useTheme();

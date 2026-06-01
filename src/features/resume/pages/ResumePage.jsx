@@ -1,8 +1,8 @@
 import { Download } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
-import ResumeViewer from './ResumeViewer';
-import JourneyCard from './JourneyCard';
-import { resumeConfig } from '../../data/resume/config';
+import { useTheme } from '../../../context/ThemeContext';
+import ResumeViewer from '../components/ResumeViewer';
+import JourneyCard from '../../../components/JourneyCard';
+import { resumeConfig, journeyContent } from '../data/config';
 
 /**
  * ResumePage — main resume page layout.
@@ -104,9 +104,15 @@ const ResumePage = () => {
           </div>
         </div>
 
-        {/* Journey Card (more on the right) */}
+        {/* Journey Card (reusable shared component) */}
         <div className="w-full lg:w-[29%] xl:w-[27%] lg:max-w-[350px] flex-shrink-0 lg:ml-auto">
-          <JourneyCard />
+          <JourneyCard
+            label={journeyContent.label}
+            title={journeyContent.title}
+            description={journeyContent.description}
+            ctaText={journeyContent.ctaText}
+            ctaLink={journeyContent.ctaLink}
+          />
         </div>
       </div>
     </section>

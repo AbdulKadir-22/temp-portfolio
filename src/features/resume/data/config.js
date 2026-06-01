@@ -15,7 +15,7 @@ export const journeyContent = {
   label: 'MY JOURNEY',
   title: 'How I Became Me',
   description:
-    'A story of curiosity, late nights, failed attempts, and small wins that built the developer I am today.',
-  ctaText: 'READ MY STORY',
+    'A deeply personal story about curiosity, struggles, and the moments that changed everything.',
+  ctaText: 'Read My Story',
   ctaLink: '/blogs',
 };
