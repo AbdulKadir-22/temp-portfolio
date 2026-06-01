@@ -1,23 +1,21 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkle } from 'lucide-react';
-  
+import { useTheme } from '../context/ThemeContext';
 
-const ThemeToggle = ({ theme, toggleTheme }) => {
-  const isDark = theme === 'dark';
-
+/**
+ * ThemeToggle — fixed top-left dark/light mode switcher with logo.
+ */
+const ThemeToggle = () => {
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <div className="fixed top-6 left-6 z-50 flex items-center gap-3">
-      {/* Temp Logo */}
-      
+      {/* Logo */}
       <div className={`w-8 h-8 rounded-full border-2 font-bold text-xs cursor-pointer transition-transform hover:scale-110 ${isDark ? 'border-white text-white' : 'border-slate-800 text-slate-800'}`}>
         <Link to="/" className="w-full h-full flex items-center justify-center">
           AS
         </Link>
       </div>
-      
-      
 
       {/* Theme Toggle */}
       <button
