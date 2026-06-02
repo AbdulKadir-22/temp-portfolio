@@ -10,6 +10,7 @@ import Hero from './features/home/Hero';
 const ResumePage = lazy(() => import('./features/resume/pages/ResumePage'));
 const BlogsPage = lazy(() => import('./features/blogs/pages/BlogsPage'));
 const ProjectsPage = lazy(() => import('./features/projects/pages/ProjectsPage'));
+const ExperiencePage = lazy(() => import('./features/experience/pages/ExperiencePage'));
 
 /**
  * Centralized route definitions.
@@ -96,8 +97,18 @@ const AppRoutes = () => {
           }
         />
 
+        {/* Experience (lazy-loaded) */}
+        <Route
+          path="experience"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ExperiencePage />
+            </Suspense>
+          }
+        />
+
         {/* Placeholder routes for future pages */}
-        {['SKILLS', 'EXPERIENCE', 'HOBBIES', 'CONTACT'].map((page) => (
+        {['SKILLS', 'HOBBIES', 'CONTACT'].map((page) => (
           <Route
             key={page}
             path={page.toLowerCase()}

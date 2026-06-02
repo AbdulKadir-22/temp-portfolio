@@ -1,0 +1,114 @@
+[
+  {
+    "id": "cambridge-ra",
+    "role": "Research Assistant (Remote)",
+    "company": "Machine Learning Group, University of Cambridge",
+    "startDate": "May 2024",
+    "endDate": "Present",
+    "duration": "1+ Year",
+    "isCurrent": true,
+    "location": "Remote",
+    "type": "Research & Development",
+    "highlights": [
+      "Implement novel visualization tools in MCMCChains.jl for advanced Bayesian analysis and predictive modeling.",
+      "Automate publication site generation using Quarto and Python, reducing manual effort by 70%."
+    ],
+    "techStack": ["Julia", "Python", "Quarto", "MCMCChains.jl", "Violin", "PPC"],
+    "responsibilities": [
+      "Implemented new visualization tools in MCMCChains.jl.",
+      "Automated publication site generation using Quarto.",
+      "Built Turing Actions for automated docs & navigation.",
+      "Contributed to benchmarking improvements in DynamicPPL.jl."
+    ],
+    "tools": ["Julia", "Python", "Quarto", "MCMCChains.jl", "Violin", "PPC", "DynamicPPL.jl", "Git"],
+    "achievements": [
+      "Reduced publication workflow time by 70% through automation and tooling."
+    ],
+    "icon": "shield"
+  },
+  {
+    "id": "technova-fsd",
+    "role": "Full Stack Developer Intern",
+    "company": "TechNova Solutions, Mumbai",
+    "startDate": "Aug 2023",
+    "endDate": "Apr 2024",
+    "duration": "9 months",
+    "isCurrent": false,
+    "location": "Mumbai, India",
+    "type": "Software Engineering",
+    "highlights": [
+      "Developed and maintained responsive web applications used by 10K+ users.",
+      "Collaborated with cross-functional teams to deliver features on time.",
+      "Optimized application performance, improving load time by 40%."
+    ],
+    "techStack": ["Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
+    "responsibilities": [
+      "Built and maintained full-stack web applications using Next.js and Node.js.",
+      "Designed RESTful APIs and integrated MongoDB for data persistence.",
+      "Collaborated in Agile sprints with cross-functional teams.",
+      "Wrote unit and integration tests to ensure code quality."
+    ],
+    "tools": ["Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS", "Git", "Jira"],
+    "achievements": [
+      "Improved page load performance by 40% through code splitting and lazy loading.",
+      "Delivered 3 major features ahead of schedule."
+    ],
+    "icon": "code"
+  },
+  {
+    "id": "opensource-contrib",
+    "role": "Open Source Contributor",
+    "company": "Various Projects",
+    "startDate": "May 2023",
+    "endDate": "Jul 2023",
+    "duration": "3 months",
+    "isCurrent": false,
+    "location": "Remote",
+    "type": "Open Source",
+    "highlights": [
+      "Contributed to open source projects and fixed critical issues.",
+      "Improved documentation and added new features."
+    ],
+    "techStack": ["GitHub", "JavaScript", "Docs", "Bug Fixing", "Open Source"],
+    "responsibilities": [
+      "Identified and fixed critical bugs in popular open-source libraries.",
+      "Authored comprehensive documentation for contributor onboarding.",
+      "Reviewed pull requests and mentored junior contributors.",
+      "Implemented feature requests from the community backlog."
+    ],
+    "tools": ["GitHub", "JavaScript", "TypeScript", "Markdown", "CI/CD", "Git"],
+    "achievements": [
+      "Merged 12+ pull requests across 5 different repositories.",
+      "Improved documentation coverage by 35%."
+    ],
+    "icon": "globe"
+  },
+  {
+    "id": "codecraft-intern",
+    "role": "Web Developer Intern",
+    "company": "CodeCraft Labs, Ahmedabad",
+    "startDate": "Apr 2022",
+    "endDate": "Jan 2023",
+    "duration": "10 months",
+    "isCurrent": false,
+    "location": "Ahmedabad, India",
+    "type": "Frontend Development",
+    "highlights": [
+      "Built interactive UIs and reusable components for client projects.",
+      "Integrated RESTful APIs and optimized frontend performance."
+    ],
+    "techStack": ["HTML", "CSS", "JavaScript", "React", "REST APIs"],
+    "responsibilities": [
+      "Developed responsive and interactive user interfaces using React.",
+      "Consumed RESTful APIs and managed application state.",
+      "Collaborated with designers to translate Figma mockups into pixel-perfect code.",
+      "Optimized frontend bundle size and rendering performance."
+    ],
+    "tools": ["HTML", "CSS", "JavaScript", "React", "REST APIs", "Figma", "Git"],
+    "achievements": [
+      "Delivered 5 client projects on time with zero critical bugs.",
+      "Reduced bundle size by 25% through tree shaking and code optimization."
+    ],
+    "icon": "terminal"
+  }
+]
