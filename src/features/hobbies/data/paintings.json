@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Cosmic Symphony",
+    "medium": "Acrylic on Canvas",
+    "year": 2024,
+    "dimensions": "24\" x 36\"",
+    "description": "An abstract depiction of a birthing nebula, featuring deep blues, magentas, and golden stellar dust. Represents the chaotic beauty of creation.",
+    "thoughts": "I wanted to capture the contrast between the coldness of deep space and the absolute warmth of a newly forming star. The gold leaf accents catch the light beautifully.",
+    "coverUrl": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 2,
+    "title": "Beacon of Hope",
+    "medium": "Oil on Board",
+    "year": 2023,
+    "dimensions": "16\" x 20\"",
+    "description": "A solitary lighthouse standing tall against a crashing ocean wave under a fiery sunset sky. Symbolizes guidance and resilience in dark times.",
+    "thoughts": "Blending the warm yellows and deep purples of the sky was a therapeutic experience. The texture of the waves was built up using a palette knife.",
+    "coverUrl": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 3,
+    "title": "Celestial Peaks",
+    "medium": "Gouache on Paper",
+    "year": 2024,
+    "dimensions": "12\" x 16\"",
+    "description": "A majestic snow-capped mountain range resting quietly beneath a brilliant swirling Milky Way galaxy. Captures the silence of the wilderness.",
+    "thoughts": "Gouache allowed me to get those crisp edges on the mountain ridge, contrasted with the soft, blended starry sky behind it. The stars were splattered with a toothbrush.",
+    "coverUrl": "https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 4,
+    "title": "The Silent Observer",
+    "medium": "Mixed Media on Canvas",
+    "year": 2025,
+    "dimensions": "30\" x 30\"",
+    "description": "An astronaut sitting peacefully on the edge of a lunar crater, looking at a glowing, detailed planet Earth floating in the dark void.",
+    "thoughts": "This piece was inspired by the overview effect. The astronaut's suit is textured with modeling paste, while the background is a flat, deep matte black.",
+    "coverUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 5,
+    "title": "Ethereal Whispers",
+    "medium": "Watercolor & Ink",
+    "year": 2023,
+    "dimensions": "11\" x 14\"",
+    "description": "Flowing purple and violet ink patterns that mimic cosmic dust clouds and stellar pathways, highlighted by delicate white ink stars.",
+    "thoughts": "I let the watercolor flow naturally, letting the pigments separate to create organic patterns. It's a study of control versus surrender.",
+    "coverUrl": "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 6,
+    "title": "Nebula's Heart",
+    "medium": "Acrylic & Resin",
+    "year": 2024,
+    "dimensions": "20\" x 20\"",
+    "description": "A circular canvas portraying a deep space portal. The resin finish gives a glassy, three-dimensional depth to the galactic layers underneath.",
+    "thoughts": "Resin requires quick work and precision, but the deep gloss it creates makes the colors pop. It feels like looking through the window of a spacecraft.",
+    "coverUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600"
+  }
+]

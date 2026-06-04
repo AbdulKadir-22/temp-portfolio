@@ -11,6 +11,10 @@ const ResumePage = lazy(() => import('./features/resume/pages/ResumePage'));
 const BlogsPage = lazy(() => import('./features/blogs/pages/BlogsPage'));
 const ProjectsPage = lazy(() => import('./features/projects/pages/ProjectsPage'));
 const ExperiencePage = lazy(() => import('./features/experience/pages/ExperiencePage'));
+const HobbiesPage = lazy(() => import('./features/hobbies/pages/HobbiesPage'));
+const AllBooksPage = lazy(() => import('./features/hobbies/pages/AllBooksPage'));
+const AllMoviesPage = lazy(() => import('./features/hobbies/pages/AllMoviesPage'));
+const AllPaintingsPage = lazy(() => import('./features/hobbies/pages/AllPaintingsPage'));
 
 /**
  * Centralized route definitions.
@@ -107,8 +111,42 @@ const AppRoutes = () => {
           }
         />
 
+        {/* Hobbies (lazy-loaded) */}
+        <Route
+          path="hobbies"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <HobbiesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="hobbies/books"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <AllBooksPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="hobbies/movies"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <AllMoviesPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="hobbies/paintings"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <AllPaintingsPage />
+            </Suspense>
+          }
+        />
+
         {/* Placeholder routes for future pages */}
-        {['SKILLS', 'HOBBIES', 'CONTACT'].map((page) => (
+        {['SKILLS', 'CONTACT'].map((page) => (
           <Route
             key={page}
             path={page.toLowerCase()}
