@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTheme } from '../../../context/ThemeContext';
 import { blogConfig, blogPosts, featuredStory } from '../data/config';
 import BlogCard from '../components/BlogCard';
@@ -27,6 +27,12 @@ const BlogsPage = () => {
   const [activeTag, setActiveTag] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [bookmarkedPosts, setBookmarkedPosts] = useState(new Set());
+
+  // Load bookmarks from localStorage on mount
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('bookmarked_posts') || '[]');
+    setBookmarkedPosts(new Set(saved));
+  }, []);
 
   // Filter posts
   const filteredPosts = useMemo(() => {
@@ -63,6 +69,7 @@ const BlogsPage = () => {
       } else {
         newSet.add(postId);
       }
+      localStorage.setItem('bookmarked_posts', JSON.stringify(Array.from(newSet)));
       return newSet;
     });
   };
@@ -211,7 +218,7 @@ const BlogsPage = () => {
             title={featuredStory.title}
             description={featuredStory.description}
             ctaText={featuredStory.ctaText}
-            ctaLink="/blogs"
+            ctaLink={`/blog/${featuredStory.id}`}
             image={featuredStory.image}
           />
           <div className="hidden lg:flex lg:flex-col lg:gap-4 w-full">

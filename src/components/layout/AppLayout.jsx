@@ -77,7 +77,7 @@ const AppLayout = () => {
         {/* ── Main Interface Layout ── */}
         <div className="relative min-h-full w-full flex items-start lg:items-center justify-center px-[4%]">
           {/* Navigation (Left) - Desktop Orbits */}
-          <div className="hidden lg:block absolute left-[-5%] lg:left-0 top-1/2 -translate-y-1/2 w-full lg:w-[500px] h-full pointer-events-none z-20">
+          <div className="hidden lg:block fixed left-[-5%] lg:left-0 top-1/2 -translate-y-1/2 w-full lg:w-[500px] h-full pointer-events-none z-20">
             <div className="pointer-events-none h-full">
               <Navigation
                 theme={theme}

@@ -17,5 +17,5 @@ export const journeyContent = {
   description:
     'A deeply personal story about curiosity, struggles, and the moments that changed everything.',
   ctaText: 'Read My Story',
-  ctaLink: '/blogs',
+  ctaLink: '/blog/how-i-became-me',
 };

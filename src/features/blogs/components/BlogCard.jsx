@@ -1,4 +1,5 @@
 import { Bookmark, ArrowRight, Calendar, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../../context/ThemeContext';
 import { categories } from '../data/config';
 
@@ -8,6 +9,7 @@ import { categories } from '../data/config';
  */
 const BlogCard = ({ post, onBookmark, isBookmarked = false }) => {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
 
   const category = categories.find((c) => c.id === post.category);
   const categoryLabel = category?.label?.toUpperCase() || post.category.toUpperCase();
@@ -16,6 +18,7 @@ const BlogCard = ({ post, onBookmark, isBookmarked = false }) => {
   return (
     <article
       id={`blog-card-${post.id}`}
+      onClick={() => navigate(`/blog/${post.id}`)}
       className={`
         group relative flex gap-4 sm:gap-5 p-4 rounded-xl border
         transition-all duration-300 cursor-pointer

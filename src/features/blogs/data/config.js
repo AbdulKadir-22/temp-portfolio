@@ -9,6 +9,19 @@ import blogLearnings from '../../../assets/blogs/blog-learnings.png';
 import blogThoughts from '../../../assets/blogs/blog-thoughts.png';
 import blogFeatured from '../../../assets/blogs/blog-featured.png';
 
+// Import markdown posts as raw strings
+import howIBecameMeMd from './posts/how-i-became-me.md?raw';
+import whyILoveBuildingThingsMd from './posts/why-i-love-building-things.md?raw';
+import lessonsFromMyFirstBigProjectMd from './posts/lessons-from-my-first-big-project.md?raw';
+import theDeveloperMindsetMd from './posts/the-developer-mindset.md?raw';
+
+export const blogMarkdownMap = {
+  'how-i-became-me': howIBecameMeMd,
+  'why-i-love-building-things': whyILoveBuildingThingsMd,
+  'lessons-from-my-first-big-project': lessonsFromMyFirstBigProjectMd,
+  'the-developer-mindset': theDeveloperMindsetMd,
+};
+
 export const blogConfig = {
   pageTitle: 'My Blogs',
   pageSubtitle: 'Thoughts, stories and lessons from my journey.',

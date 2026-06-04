@@ -6,8 +6,8 @@
 
 export const siteContent = {
   personal: {
-    name: 'Abdulkadir Shaikh',
-    firstName: 'ABDULKADIR',
+    name: 'Alfisha  Shaikh',
+    firstName: 'Alfisha',
     lastName: 'SHAIKH',
     title: 'Developer · Learner · Dreamer',
     tagline:

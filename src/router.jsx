@@ -9,6 +9,7 @@ import Hero from './features/home/Hero';
 // Lazy-load other pages (only fetched when navigated to)
 const ResumePage = lazy(() => import('./features/resume/pages/ResumePage'));
 const BlogsPage = lazy(() => import('./features/blogs/pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./features/blogs/pages/BlogDetailPage'));
 const ProjectsPage = lazy(() => import('./features/projects/pages/ProjectsPage'));
 const ExperiencePage = lazy(() => import('./features/experience/pages/ExperiencePage'));
 const HobbiesPage = lazy(() => import('./features/hobbies/pages/HobbiesPage'));
@@ -87,6 +88,16 @@ const AppRoutes = () => {
           element={
             <Suspense fallback={<PageLoader />}>
               <BlogsPage />
+            </Suspense>
+          }
+        />
+
+        {/* Blog Detail (lazy-loaded) */}
+        <Route
+          path="blog/:id"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <BlogDetailPage />
             </Suspense>
           }
         />
