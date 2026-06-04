@@ -11,6 +11,7 @@ const ResumePage = lazy(() => import('./features/resume/pages/ResumePage'));
 const BlogsPage = lazy(() => import('./features/blogs/pages/BlogsPage'));
 const BlogDetailPage = lazy(() => import('./features/blogs/pages/BlogDetailPage'));
 const ProjectsPage = lazy(() => import('./features/projects/pages/ProjectsPage'));
+const ProjectDetailPage = lazy(() => import('./features/projects/pages/ProjectDetailPage'));
 const ExperiencePage = lazy(() => import('./features/experience/pages/ExperiencePage'));
 const HobbiesPage = lazy(() => import('./features/hobbies/pages/HobbiesPage'));
 const AllBooksPage = lazy(() => import('./features/hobbies/pages/AllBooksPage'));
@@ -108,6 +109,16 @@ const AppRoutes = () => {
           element={
             <Suspense fallback={<PageLoader />}>
               <ProjectsPage />
+            </Suspense>
+          }
+        />
+
+        {/* Project Detail (lazy-loaded) */}
+        <Route
+          path="project/:id"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ProjectDetailPage />
             </Suspense>
           }
         />
