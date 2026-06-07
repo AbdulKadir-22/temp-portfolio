@@ -46,8 +46,9 @@ import toolsPlanet from '../../../assets/skills/tools.png';
 
 export const skillsConfig = {
   pageTitle: 'My Skills',
-  pageSubtitle: 'Exploring the universe of technologies I work with.',
-  quote: 'Skills are the stars, consistency is the gravity.',
+  pageSubtitle:
+    'A growing collection of technologies, tools, ideas, and disciplines that shape the things I create.',
+  quote: 'Every skill started as a mystery I refused to leave unsolved.',
 };
 
 export const skillsData = [
@@ -56,14 +57,15 @@ export const skillsData = [
     title: 'Frontend Development',
     planet: frontendPlanet,
     count: '8 Technologies',
-    description: 'Building beautiful, responsive, and highly interactive user interfaces and web applications.',
-    angle: -126, // Top-Left
+    description:
+      'The visible side of my ideas. I enjoy transforming concepts into experiences that feel intuitive, expressive, and alive. From portfolio experiments to hackathon products, frontend development is where design meets engineering.',
+    angle: -126,
     proficiencies: [
       { name: 'React / Next.js', percentage: 90 },
-      { name: 'JavaScript (ES6+)', percentage: 85 },
-      { name: 'TypeScript', percentage: 80 },
-      { name: 'HTML & CSS', percentage: 95 },
-      { name: 'Tailwind CSS', percentage: 90 }
+      { name: 'JavaScript (ES6+)', percentage: 88 },
+      { name: 'TypeScript', percentage: 82 },
+      { name: 'UI/UX Design', percentage: 85 },
+      { name: 'Tailwind CSS', percentage: 92 }
     ],
     technologies: [
       { name: 'React', icon: SiReact, color: '#61DAFB' },
@@ -75,21 +77,23 @@ export const skillsData = [
       { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
       { name: 'Sass', icon: SiSass, color: '#CC6699' }
     ],
-    featuredProjects: ['astroblog', 'devconnect', 'portfoliov2']
+    featuredProjects: ['astroblog', 'portfoliov2', 'devconnect']
   },
+
   {
     id: 'backend',
     title: 'Backend Development',
     planet: backendPlanet,
     count: '7 Technologies',
-    description: 'Designing scalable, robust, and high-performance server-side architectures, REST APIs, and microservices.',
-    angle: -54, // Top-Right
+    description:
+      'My favorite playground. I enjoy architecting APIs, designing systems, solving data-flow challenges, and building the invisible foundations that power modern applications. Most of my recent growth has been focused on becoming a stronger backend engineer.',
+    angle: -54,
     proficiencies: [
-      { name: 'Node.js / Express', percentage: 85 },
-      { name: 'NestJS', percentage: 75 },
-      { name: 'REST APIs', percentage: 90 },
-      { name: 'GraphQL', percentage: 70 },
-      { name: 'WebSockets', percentage: 80 }
+      { name: 'Node.js / Express', percentage: 90 },
+      { name: 'NestJS', percentage: 78 },
+      { name: 'REST APIs', percentage: 92 },
+      { name: 'Authentication & Security', percentage: 85 },
+      { name: 'WebSockets', percentage: 82 }
     ],
     technologies: [
       { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
@@ -100,19 +104,21 @@ export const skillsData = [
       { name: 'Python', icon: SiPython, color: '#3776AB' },
       { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' }
     ],
-    featuredProjects: ['devconnect', 'neargrab']
+    featuredProjects: ['devconnect', 'neargrab', 'portyours']
   },
+
   {
     id: 'databases',
-    title: 'Databases',
+    title: 'Databases & Data',
     planet: databasePlanet,
     count: '5 Technologies',
-    description: 'Structuring, query optimization, indexing, and managing structured and unstructured database engines.',
-    angle: 18, // Middle-Right
+    description:
+      'Every application eventually becomes a story about data. I enjoy designing schemas, structuring information, optimizing queries, and ensuring systems remain reliable as projects grow from prototypes into products.',
+    angle: 18,
     proficiencies: [
-      { name: 'MongoDB', percentage: 85 },
-      { name: 'PostgreSQL', percentage: 80 },
-      { name: 'MySQL', percentage: 75 },
+      { name: 'MongoDB', percentage: 88 },
+      { name: 'PostgreSQL', percentage: 82 },
+      { name: 'Data Modeling', percentage: 85 },
       { name: 'Redis', percentage: 75 },
       { name: 'Firebase', percentage: 80 }
     ],
@@ -125,19 +131,21 @@ export const skillsData = [
     ],
     featuredProjects: ['devconnect', 'neargrab']
   },
+
   {
     id: 'tools-devops',
     title: 'Tools & DevOps',
     planet: toolsPlanet,
     count: '13 Technologies',
-    description: 'Essential developer tools, cloud deployments, CI/CD automation pipelines, containers, and UX workflows.',
-    angle: 90, // Bottom-Center
+    description:
+      'The quiet infrastructure behind every successful project. From version control and deployment pipelines to containers and cloud platforms, these tools help transform ideas into production-ready products.',
+    angle: 90,
     proficiencies: [
-      { name: 'Git & GitHub', percentage: 90 },
-      { name: 'Docker / Containers', percentage: 75 },
-      { name: 'CI/CD (GitHub Actions)', percentage: 80 },
-      { name: 'Cloud (AWS / Vercel)', percentage: 80 },
-      { name: 'VS Code & Env', percentage: 95 }
+      { name: 'Git & GitHub', percentage: 92 },
+      { name: 'Docker', percentage: 78 },
+      { name: 'CI/CD', percentage: 80 },
+      { name: 'Cloud Deployments', percentage: 82 },
+      { name: 'Developer Workflow', percentage: 95 }
     ],
     technologies: [
       { name: 'Git', icon: SiGit, color: '#F05032' },
@@ -154,29 +162,25 @@ export const skillsData = [
       { name: 'NPM', icon: SiNpm, color: '#CB3837' },
       { name: 'Vite', icon: SiVite, color: '#646CFF' }
     ],
-    featuredProjects: ['codesnippet', 'portfoliov2', 'devconnect', 'astroblog']
+    featuredProjects: ['portfoliov2', 'astroblog', 'devconnect', 'codesnippet']
   },
+
   {
-    id: 'ai-ml',
-    title: 'AI & Machine Learning',
+    id: 'something-brewing',
+    title: 'Something is Brewing',
     planet: aiPlanet,
-    count: '5 Technologies',
-    description: 'Building intelligent predictive models, data preprocessing, neural networks, and integrating LLMs.',
-    angle: 162, // Middle-Left
+    count: 'Classified',
+    description:
+      'Not every project belongs in the spotlight. Somewhere between curiosity and obsession, a new frontier is taking shape. Research papers, intelligent systems, machine learning, language models, and ideas that currently feel just beyond my reach have captured my attention. This world remains locked for now. Check back later — the stars are still aligning.',
+    angle: 162,
     proficiencies: [
-      { name: 'Python', percentage: 85 },
-      { name: 'LLM Integration', percentage: 80 },
-      { name: 'Machine Learning', percentage: 70 },
-      { name: 'Deep Learning', percentage: 60 },
-      { name: 'NLP', percentage: 65 }
+      { name: 'Curiosity', percentage: 100 },
+      { name: 'Research', percentage: 85 },
+      { name: 'Experimentation', percentage: 90 },
+      { name: 'Ambition', percentage: 100 },
+      { name: 'Patience', percentage: 60 }
     ],
-    technologies: [
-      { name: 'Python', icon: SiPython, color: '#3776AB' },
-      { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C' },
-      { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
-      { name: 'Scikit-Learn', icon: SiScikitlearn, color: '#F7931E' },
-      { name: 'OpenAI API', icon: SiOpenai, color: '#412991', lightColor: '#000000', darkColor: '#FFFFFF' }
-    ],
-    featuredProjects: ['codesnippet']
+    technologies: [],
+    featuredProjects: []
   }
 ];

@@ -3,9 +3,9 @@ import planetBase from '../assets/planet-base.png';
 import planetDark from '../assets/planet-dark.png';
 
 const navItems = [
-  { id: '01', label: 'BLOGS', subtext: 'My story, my journey', color: '#3b82f6', angle: -85, hue: 215 },
+  { id: '01', label: 'BLOGS', subtext: 'Its Who I am', color: '#3b82f6', angle: -85, hue: 215 },
   { id: '02', label: 'SKILLS', subtext: "What I'm good at", color: '#eab308', angle: -43, hue: 42 },
-  { id: '03', label: 'PROJECTS', subtext: 'My work & creations', color: '#a855f7', angle: -1, hue: 285 },
+  { id: '03', label: 'PROJECTS', subtext: 'My Creations', color: '#a855f7', angle: -1, hue: 285 },
   { id: '04', label: 'EXPERIENCE', subtext: 'My journey so far', color: '#06b6d4', angle: 41, hue: 175 },
   { id: '05', label: 'HOBBIES', subtext: 'Beyond the code', color: '#22c55e', angle: 83, hue: 140 },
   { id: '06', label: 'CONTACT', subtext: "Let's connect", color: '#ef4444', angle: 125, hue: 350 },

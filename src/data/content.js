@@ -8,7 +8,7 @@ export const siteContent = {
   personal: {
     name: 'Abdulkadir  Shaikh',
     firstName: 'Abdulkadir',
-    lastName: 'SHAIKH',
+    lastName: 'Shaikh',
     title: 'Developer · Learner · Dreamer',
     tagline:
       'I want to become sun who shines other, but am a meteor who only shines when he is falling.',

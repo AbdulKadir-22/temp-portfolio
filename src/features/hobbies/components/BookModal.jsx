@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, BookOpen, Star, Quote, Award } from 'lucide-react';
+import { siteContent } from '../../../data/content';
 import { useTheme } from '../../../context/ThemeContext';
 
 const BookModal = ({ book, onClose, onPrev, onNext }) => {
@@ -271,7 +272,7 @@ const BookModal = ({ book, onClose, onPrev, onNext }) => {
 
             {/* Page number footer decoration */}
             <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 dark:border-zinc-900/60 text-[9px] font-bold tracking-widest uppercase opacity-35">
-              <span>Abdulkadir's Library</span>
+              <span>{siteContent.personal.firstName}'s Library</span>
               <span>Hobby Space · {book.id}</span>
             </div>
 

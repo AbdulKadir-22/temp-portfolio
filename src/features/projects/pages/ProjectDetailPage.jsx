@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { siteContent } from '../../../data/content';
 import { 
   ArrowLeft, Calendar, Clock, Star, ExternalLink, 
   Users, CheckCircle2, ChevronLeft, ChevronRight,
@@ -757,7 +758,7 @@ const ProjectDetailPage = () => {
             </div>
 
             <div className="flex flex-col gap-0.5">
-              <span className="text-xs font-bold tracking-wide">Abdulkadir Shaikh</span>
+              <span className="text-xs font-bold tracking-wide">{siteContent.personal.name}</span>
               <p className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-white/40' : 'text-slate-400'}`}>
                 {details.status}
               </p>

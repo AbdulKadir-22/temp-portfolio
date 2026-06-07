@@ -1,12 +1,14 @@
 import { createElement } from 'react';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { useTheme } from '../../context/ThemeContext';
+import { siteContent } from '../../data/content';
+import { contactConfig } from '../contact/data/config';
 
 const socialLinks = [
-  { icon: FaGithub, label: 'GitHub', color: 'gold' },
-  { icon: FaLinkedinIn, label: 'LinkedIn', color: 'blue' },
-  { icon: FaXTwitter, label: 'Twitter', color: 'blue' },
-  { icon: FaInstagram, label: 'Instagram', color: 'gold' },
+  { id: 'github', icon: FaGithub, label: 'GitHub', color: 'gold' },
+  { id: 'linkedin', icon: FaLinkedinIn, label: 'LinkedIn', color: 'blue' },
+  { id: 'twitter', icon: FaXTwitter, label: 'Twitter', color: 'blue' },
+  { id: 'instagram', icon: FaInstagram, label: 'Instagram', color: 'gold' },
 ];
 
 /**
@@ -28,10 +30,21 @@ const Hero = () => {
     textShadow: isDark ? 'none' : '0 4px 12px rgba(106, 143, 225, 0.2)',
   };
 
+  // Split name from siteContent.personal to render stack name elements
+  const firstName = siteContent.personal.firstName || 'ABDULKADIR';
+  const lastName = siteContent.personal.lastName || 'SHAIKH';
+  const names = [firstName.toUpperCase(), lastName.toUpperCase()];
+
+  // Helper to fetch social URL from contact config
+  const getSocialUrl = (id) => {
+    const social = contactConfig.socials.find((s) => s.id === id);
+    return social ? social.url : '#';
+  };
+
   return (
     <section className="flex flex-col items-center text-center px-4 w-full max-w-xl scale-[0.95] mt-12 lg:mt-0">
       <header className="mb-4">
-        {['ABDULKADIR', 'SHAIKH'].map((name, i) => (
+        {names.map((name, i) => (
           <h1 key={i} className={`text-4xl sm:text-6xl md:text-7xl font-black ${i > 0 ? '-mt-1' : ''}`} style={titleStyle}>
             {name}
           </h1>
@@ -52,16 +65,14 @@ const Hero = () => {
       <blockquote className={`relative mb-8 max-w-lg px-6 italic ${isDark ? 'text-white/80' : 'text-[#23386d]'}`}>
         <span className="absolute left-0 top-0 text-2xl text-yellow-500">"</span>
         <p className="text-lg md:text-xl font-light leading-relaxed">
-          I want to become sun who shines other, 
-          <br className="hidden sm:block" />
-          but am a meteor who only shines when he is falling.
+          {siteContent.personal.tagline}
         </p>
         <span className="absolute bottom-0 right-0 text-2xl text-yellow-500">"</span>
       </blockquote>
 
       <nav className="flex gap-4">
-        {socialLinks.map(({ icon: Icon, label, color }) => (
-          <a key={label} href="#" aria-label={label}
+        {socialLinks.map(({ id, icon: Icon, label, color }) => (
+          <a key={label} href={getSocialUrl(id)} target="_blank" rel="noopener noreferrer" aria-label={label}
             className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all hover:-translate-y-1 shadow-md cursor-pointer ${
               isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-white border-blue-100 text-blue-500'
             }`}

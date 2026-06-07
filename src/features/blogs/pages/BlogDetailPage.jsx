@@ -8,6 +8,9 @@ import { FaGithub, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6
 import { useTheme } from '../../../context/ThemeContext';
 import { blogPosts, categories, blogMarkdownMap } from '../data/config';
 import { parseFrontmatter, parseMarkdownBlocks, FormattedText } from '../utils/markdown';
+import { siteContent } from '../../../data/content';
+import { contactConfig } from '../../contact/data/config';
+import Logo from '../../../../public/Logo-light.png'
 
 // Map icon names to Lucide icon components for custom struggle cards grid
 const struggleIconMap = {
@@ -530,48 +533,53 @@ const BlogDetailPage = () => {
             {/* Avatar image from unsplash placeholder */}
             <div className="w-[84px] h-[84px] rounded-full overflow-hidden border-2 border-blue-500/20 shadow-md">
               <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&h=150&q=80" 
-                alt="Abdulkadir Shaikh" 
+                src= {Logo}
+                alt={siteContent.personal.name} 
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div className="flex flex-col gap-0.5">
-              <h4 className="font-bold text-sm tracking-wide">Abdulkadir Shaikh</h4>
+              <h4 className="font-bold text-sm tracking-wide">{siteContent.personal.name}</h4>
               <p className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-white/40' : 'text-slate-400'}`}>
-                Developer • Learner • Dreamer
+                {siteContent.personal.title}
               </p>
             </div>
 
             <p className={`text-xs leading-relaxed ${isDark ? 'text-white/50' : 'text-slate-500'}`}>
-              I write about my experiences, lessons, and thoughts on tech, life and everything in between.
+              Part journal, part laboratory, part unfinished conversation. These writings explore technology, creativity, ambition, and the quiet moments between them.
+
             </p>
 
             {/* Author Social Links */}
             <div className="flex items-center gap-3 mt-1">
               {[
-                { icon: FaGithub, label: 'GitHub', href: 'https://github.com/AbdulKadir-22' },
-                { icon: FaLinkedinIn, label: 'LinkedIn', href: '#' },
-                { icon: FaXTwitter, label: 'Twitter', href: '#' },
-                { icon: FaInstagram, label: 'Instagram', href: '#' }
-              ].map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href !== '#' ? '_blank' : undefined}
-                  rel={href !== '#' ? 'noopener noreferrer' : undefined}
-                  aria-label={label}
-                  className={`
-                    w-8 h-8 rounded-full border flex items-center justify-center transition-all hover:-translate-y-0.5 cursor-pointer
-                    ${isDark 
-                      ? 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10' 
-                      : 'bg-white border-blue-100 text-blue-500 hover:bg-blue-50 hover:border-blue-200'
-                    }
-                  `}
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
+                { id: 'github', icon: FaGithub, label: 'GitHub' },
+                { id: 'linkedin', icon: FaLinkedinIn, label: 'LinkedIn' },
+                { id: 'twitter', icon: FaXTwitter, label: 'Twitter' },
+                { id: 'instagram', icon: FaInstagram, label: 'Instagram' }
+              ].map(({ id: socialId, icon: Icon, label }) => {
+                const social = contactConfig.socials.find((s) => s.id === socialId);
+                const href = social ? social.url : '#';
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href !== '#' ? '_blank' : undefined}
+                    rel={href !== '#' ? 'noopener noreferrer' : undefined}
+                    aria-label={label}
+                    className={`
+                      w-8 h-8 rounded-full border flex items-center justify-center transition-all hover:-translate-y-0.5 cursor-pointer
+                      ${isDark 
+                        ? 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:bg-white/10' 
+                        : 'bg-white border-blue-100 text-blue-500 hover:bg-blue-50 hover:border-blue-200'
+                      }
+                    `}
+                  >
+                    <Icon size={14} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

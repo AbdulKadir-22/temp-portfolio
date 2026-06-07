@@ -314,3 +314,110 @@
   -ms-overflow-style: none !important;  /* IE and Edge */
   scrollbar-width: none !important;  /* Firefox */
 }
+
+/* ═══════════════════════════════════════════
+   Shooting Star / Falling Meteor Animation
+   ═══════════════════════════════════════════ */
+
+@keyframes fallMeteor {
+  0% {
+    transform: translate(0, 0) rotate(-40deg);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  12% {
+    opacity: 1;
+  }
+  18% {
+    transform: translate(-120vw, 100vh) rotate(-40deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-120vw, 100vh) rotate(-40deg);
+    opacity: 0;
+  }
+}
+
+.shooting-star-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0) 100%);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shooting-star-1 {
+  top: -20px;
+  right: 10%;
+  animation: fallMeteor 6s linear infinite;
+  animation-delay: 0s;
+}
+
+.shooting-star-2 {
+  top: -20px;
+  right: 25%;
+  width: 110px;
+  height: 1.5px;
+  animation: fallMeteor 8s linear infinite;
+  animation-delay: 1.5s;
+  background: linear-gradient(90deg, rgba(147, 197, 253, 1) 0%, rgba(147, 197, 253, 0.3) 40%, rgba(147, 197, 253, 0) 100%);
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.6));
+}
+
+.shooting-star-3 {
+  top: -20px;
+  right: 40%;
+  width: 130px;
+  height: 2px;
+  animation: fallMeteor 10s linear infinite;
+  animation-delay: 3s;
+}
+
+.shooting-star-4 {
+  top: -20px;
+  right: -5%;
+  width: 170px;
+  height: 2.2px;
+  animation: fallMeteor 7s linear infinite;
+  animation-delay: 2.2s;
+  background: linear-gradient(90deg, rgba(254, 240, 138, 1) 0%, rgba(254, 240, 138, 0.4) 40%, rgba(254, 240, 138, 0) 100%);
+  filter: drop-shadow(0 0 7px rgba(234, 179, 8, 0.7));
+}
+
+.shooting-star-5 {
+  top: -20px;
+  right: 18%;
+  width: 140px;
+  height: 2px;
+  animation: fallMeteor 9s linear infinite;
+  animation-delay: 4.5s;
+}
+
+.shooting-star-6 {
+  top: -20px;
+  right: 55%;
+  width: 95px;
+  height: 1.2px;
+  animation: fallMeteor 12s linear infinite;
+  animation-delay: 6s;
+  background: linear-gradient(90deg, rgba(147, 197, 253, 0.9) 0%, rgba(147, 197, 253, 0.25) 40%, rgba(147, 197, 253, 0) 100%);
+  filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star {
+    animation: none !important;
+  }
+}

@@ -40,6 +40,14 @@ const AppLayout = () => {
     document.title = `${pageTitle} - Abdulkadir Shaikh`;
   }, [currentPage]);
 
+  // Dynamically update browser tab favicon based on active theme
+  useEffect(() => {
+    const faviconLink = document.querySelector("link[rel~='icon']");
+    if (faviconLink) {
+      faviconLink.href = isDark ? '/Logo-dark.png' : '/Logo-light.png';
+    }
+  }, [isDark]);
+
   const handlePageChange = (page) => {
     navigate(page === 'HOME' ? '/' : `/${page.toLowerCase()}`);
   };
@@ -73,6 +81,16 @@ const AppLayout = () => {
           <img src={meteorImg} alt="" className="meteor-piece meteor-piece-lg hidden lg:block" />
           <img src={meteorImg} alt="" className="meteor-piece meteor-piece-sm meteor-piece-sm-top" />
           <img src={meteorImg} alt="" className="meteor-piece meteor-piece-sm meteor-piece-sm-upper" />
+        </div>
+
+        {/* Falling Meteors (Shooting Stars) */}
+        <div className="shooting-star-container">
+          <div className="shooting-star shooting-star-1" />
+          <div className="shooting-star shooting-star-2" />
+          <div className="shooting-star shooting-star-3" />
+          <div className="shooting-star shooting-star-4" />
+          <div className="shooting-star shooting-star-5" />
+          <div className="shooting-star shooting-star-6" />
         </div>
 
         {/* ── Main Interface Layout ── */}

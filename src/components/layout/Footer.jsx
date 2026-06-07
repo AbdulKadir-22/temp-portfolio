@@ -83,7 +83,7 @@ const Footer = () => {
                 }
               `}
             >
-              Abdulkadir Shaikh
+              {siteContent.personal.name}
             </h2>
           </div>
 
