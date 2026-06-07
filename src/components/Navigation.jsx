@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import planetBase from '../assets/planet-base.png';
 import planetDark from '../assets/planet-dark.png';
 
@@ -13,8 +13,8 @@ const navItems = [
 
 const Navigation = ({ theme, currentPage = 'HOME', onPageChange }) => {
   const isDark = theme === 'dark';
-  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -23,133 +23,103 @@ const Navigation = ({ theme, currentPage = 'HOME', onPageChange }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Smoothly center the active item on navigation
+  useEffect(() => {
+    if (isMobile && containerRef.current) {
+      const activeElement = containerRef.current.querySelector('.active-nav-item');
+      if (activeElement) {
+        activeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  }, [currentPage, isMobile]);
+
   if (isMobile) {
+    const mobileNavItems = [
+      { label: 'HOME', uiLabel: 'Home' },
+      { label: 'RESUME', uiLabel: 'Resume' },
+      { label: 'BLOGS', uiLabel: 'Blogs' },
+      { label: 'SKILLS', uiLabel: 'Skills' },
+      { label: 'PROJECTS', uiLabel: 'Projects' },
+      { label: 'EXPERIENCE', uiLabel: 'Experience' },
+      { label: 'HOBBIES', uiLabel: 'Hobbies' },
+      { label: 'CONTACT', uiLabel: 'Contact' },
+    ];
+
     return (
-      <div className="select-none">
-        {/* Closed State: Floating Glowing Mini Planet Menu Toggle */}
-        {!isOpen && (
-          <div
-            className="fixed bottom-6 left-6 w-14 h-14 z-50 rounded-full cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center"
-            onClick={() => setIsOpen(true)}
-            aria-label="Open Navigation menu"
-          >
-            <img
-              src={isDark ? planetDark : planetBase}
-              alt="Navigation Menu"
-              className="w-full h-full object-contain planet-animation"
-              style={{
-                filter: isDark
-                  ? 'brightness(1.2) contrast(1.1) drop-shadow(0 0 15px rgba(100, 150, 255, 0.6))'
-                  : 'brightness(0.9) contrast(1.2) hue-rotate(190deg) saturate(1.5) drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))',
+      <div
+        ref={containerRef}
+        className={`
+          fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-[500px] h-[82px] z-50
+          rounded-2xl border backdrop-blur-lg select-none
+          flex items-center justify-start gap-6 px-5 py-2.5 overflow-x-auto scrollbar-none
+          transition-all duration-500 ease-in-out
+          ${isDark
+            ? 'bg-slate-950/75 border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
+            : 'bg-white/60 border-slate-200/50 shadow-[0_8px_32px_rgba(31,38,135,0.08)]'
+          }
+        `}
+      >
+        {mobileNavItems.map((item) => {
+          const isActive = currentPage === item.label;
+          return (
+            <div
+              key={item.label}
+              className={`
+                flex flex-col items-center gap-1 cursor-pointer flex-shrink-0 min-w-[56px] relative
+                ${isActive ? 'active-nav-item' : ''}
+              `}
+              onClick={() => {
+                if (onPageChange) onPageChange(item.label);
               }}
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className={`text-[6px] font-bold tracking-widest ${isDark ? 'text-white/90' : 'text-blue-900/90'}`}>NAV</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={isDark ? 'text-white/90' : 'text-blue-900/90'}>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </div>
-          </div>
-        )}
-
-        {/* Open State: Fullscreen Immersive Solar System Overlay */}
-        {isOpen && (
-          <div
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/85 backdrop-blur-lg transition-all duration-500 animate-fadeIn"
-            onClick={() => setIsOpen(false)}
-          >
-            {/* Close Button top-left */}
-            <button
-              className="absolute top-6 left-6 text-white/60 hover:text-white text-xs font-bold tracking-widest flex items-center gap-1.5 cursor-pointer"
-              onClick={() => setIsOpen(false)}
             >
-              ✕ CLOSE
-            </button>
-
-            {/* Immersive Solar Menu */}
-            <div className="relative w-[300px] h-[300px] flex items-center justify-center" onClick={e => e.stopPropagation()}>
-
-              {/* Starry Orbit Ring Indicators */}
-              {[1.0, 1.4].map((scale, i) => (
-                <div
-                  key={i}
-                  className="absolute rounded-full border border-dashed border-white/10"
-                  style={{
-                    width: `${100 * scale}%`,
-                    height: `${100 * scale}%`,
-                  }}
-                />
-              ))}
-
-              {/* Center Main Planet */}
-              <div
-                className="w-[120px] h-[120px] relative flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95"
-                onClick={() => setIsOpen(false)}
-              >
+              {/* Planet sphere */}
+              <div className="relative w-9 h-9 flex items-center justify-center">
+                {isActive && (
+                  <div
+                    className={`
+                      absolute -inset-1.5 rounded-full border border-blue-500/80 animate-pulse
+                      shadow-[0_0_12px_rgba(59,130,246,0.6)]
+                    `}
+                  />
+                )}
                 <img
-                  src={planetDark}
-                  alt="Main Planet"
-                  className="w-full h-full object-contain planet-animation"
+                  src={isActive ? planetBase : planetDark}
+                  alt={item.uiLabel}
+                  className={`
+                    w-7.5 h-7.5 object-contain transition-all duration-300
+                    ${isActive 
+                      ? 'animate-footer-orbit' 
+                      : 'opacity-65 hover:opacity-95'
+                    }
+                  `}
                   style={{
-                    filter: 'brightness(1.25) contrast(1.1) drop-shadow(0 0 30px rgba(100, 150, 255, 0.5))',
+                    filter: isActive
+                      ? 'brightness(1.35) saturate(1.8) contrast(1.1) drop-shadow(0 0 6px rgba(234,179,8,0.4))'
+                      : 'brightness(0.95) saturate(1.1) contrast(1.05)',
+                    animationDuration: '30s'
                   }}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-                  <span className="text-[7px] font-bold text-white/50 tracking-widest uppercase">CURRENT</span>
-                  <h2 className="text-base font-black tracking-widest text-white leading-tight">{currentPage}</h2>
-                  <p className="text-[6px] tracking-[0.2em] font-light text-white/40 uppercase">Tap to close</p>
-                </div>
               </div>
 
-              {/* Orbiting Solar Navigation Items (Fanned out in a perfect circle) */}
-              {navItems.map((item, index) => {
-                const angle = -90 + (index * 60); // 6 items distributed evenly (360 / 6 = 60 deg)
-                const radius = 110;
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
-
-                return (
-                  <div
-                    key={item.id}
-                    className="absolute"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                    }}
-                  >
-                    <div
-                      className="flex flex-col items-center gap-1.5 cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 group"
-                      onClick={() => {
-                        if (onPageChange) onPageChange(item.label);
-                        setIsOpen(false);
-                      }}
-                    >
-                      <div className="w-11 h-11 relative">
-                        <img
-                          src={planetBase}
-                          alt={item.label}
-                          className="w-full h-full object-contain planet-animation"
-                          style={{
-                            filter: `hue-rotate(${item.hue}deg) brightness(1.35) saturate(2.2) contrast(1.1) drop-shadow(0 0 15px ${item.color}aa)`
-                          }}
-                        />
-                      </div>
-                      <span className={`text-[8px] font-black tracking-widest px-2 py-0.5 rounded border transition-colors duration-300 ${currentPage === item.label
-                          ? 'bg-white text-black border-white'
-                          : 'bg-black/60 text-white/90 border-white/10 group-hover:border-white/40'
-                        }`}>
-                        {item.label}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+              {/* Label */}
+              <span
+                className={`
+                  text-[10px] tracking-wide transition-colors duration-300
+                  ${isActive
+                    ? isDark ? 'text-white font-semibold' : 'text-slate-800 font-semibold'
+                    : isDark ? 'text-white/40 font-medium' : 'text-slate-400 font-medium'
+                  }
+                `}
+              >
+                {item.uiLabel}
+              </span>
             </div>
-          </div>
-        )}
+          );
+        })}
       </div>
     );
   }
@@ -209,7 +179,7 @@ const Navigation = ({ theme, currentPage = 'HOME', onPageChange }) => {
             </p>
           </div>
 
-          {/* Orbiting Planets (Moved inside central planet container to fix desktop alignment) */}
+          {/* Orbiting Planets */}
           {navItems.map((item, index) => {
             const angle = item.angle;
             const radius = isDark ? 210 + (index * 10) : 200 + (index * 8);
@@ -231,7 +201,7 @@ const Navigation = ({ theme, currentPage = 'HOME', onPageChange }) => {
                   className="transition-all duration-500 hover:scale-110 group cursor-pointer orbit-item"
                   style={{ animationDelay: `${index * 0.5}s` }}
                   onClick={(e) => {
-                    e.stopPropagation(); // Prevent bubbling to central planet
+                    e.stopPropagation();
                     console.log('Clicked planet:', item.label);
                     if (onPageChange) onPageChange(item.label);
                   }}
