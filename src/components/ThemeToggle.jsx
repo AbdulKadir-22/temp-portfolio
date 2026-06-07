@@ -11,9 +11,9 @@ const ThemeToggle = () => {
   return (
     <div className="fixed top-6 left-6 z-50 flex items-center gap-3">
       {/* Logo */}
-      <div className={`w-8 h-8 rounded-full border-2 font-bold text-xs cursor-pointer transition-transform hover:scale-110 ${isDark ? 'border-white text-white' : 'border-slate-800 text-slate-800'}`}>
+      <div className={`w-8 h-8 rounded-full border-2 overflow-hidden cursor-pointer transition-transform hover:scale-110 ${isDark ? 'border-white' : 'border-slate-800'}`}>
         <Link to="/" className="w-full h-full flex items-center justify-center">
-          AS
+          <img src="/Logo.png" alt="Logo" className="w-full h-full object-cover bg-white" />
         </Link>
       </div>
 

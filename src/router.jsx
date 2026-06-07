@@ -19,6 +19,7 @@ const AllMoviesPage = lazy(() => import('./features/hobbies/pages/AllMoviesPage'
 const AllPaintingsPage = lazy(() => import('./features/hobbies/pages/AllPaintingsPage'));
 const ContactPage = lazy(() => import('./features/contact/pages/ContactPage'));
 const SkillsPage = lazy(() => import('./features/skills/pages/SkillsPage'));
+const LiteraturePage = lazy(() => import('./features/literature/pages/LiteraturePage'));
 
 /**
  * Centralized route definitions.
@@ -182,6 +183,16 @@ const AppRoutes = () => {
           element={
             <Suspense fallback={<PageLoader />}>
               <SkillsPage />
+            </Suspense>
+          }
+        />
+
+        {/* Literature (lazy-loaded) */}
+        <Route
+          path="literature"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <LiteraturePage />
             </Suspense>
           }
         />

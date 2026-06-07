@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import ThemeToggle from '../ThemeToggle';
 import Navigation from '../Navigation';
 import ResumeButton from './ResumeButton';
+import LiteratureButton from './LiteratureButton';
 import NowPlayingCard from './NowPlayingCard';
 import Footer from './Footer';
 import { siteContent } from '../../data/content';
@@ -61,7 +62,10 @@ const AppLayout = () => {
       <div className="relative z-10 w-full h-screen overflow-y-auto">
         {/* Fixed UI Elements */}
         <ThemeToggle />
-        <ResumeButton />
+        <div className="fixed top-6 right-6 z-50 flex items-center gap-2.5 sm:gap-3">
+          <LiteratureButton />
+          <ResumeButton />
+        </div>
         <NowPlayingCard />
 
         {/* Meteor Pieces */}
